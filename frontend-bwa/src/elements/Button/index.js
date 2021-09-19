@@ -11,8 +11,8 @@ export default function Button(props) {
   if (props.isShadow) className.push("btn-shadow");
   if (props.isShadow) className.push("btn-primary");
 
-  const onClick = () => {
-    if (props.onCLick) props.onCLick;
+  const onClick = (props) => {
+    // if (props.onCLick) props.onCLick;
   };
 
   if (props.isDisable || props.isLoading) {
@@ -38,8 +38,8 @@ export default function Button(props) {
           href={props.href}
           className={className.join(" ")}
           style={props.style}
-          target={props.target === "_blank" ? "_blank" : undefined}
-          rel={props.target === "_blank" ? "noopener noreferrer" : undefined}
+          target={props.target === "_blank" ? "noopener" : undefined}
+          rel={props.target === "_blank" ? "noreferrer" : undefined}
         >
           {props.children}
         </a>
@@ -69,18 +69,17 @@ export default function Button(props) {
   );
 }
 
-Button.propTypes *
-  {
-    type: propTypes.oneOf(["button", "link"]),
-    onClick: propTypes.func,
-    target: propTypes.string,
-    href: propTypes.string,
-    className: propTypes.string,
-    isDisable: propTypes.bool,
-    isLoading: propTypes.bool,
-    isSmall: propTypes.bool,
-    isLarge: propTypes.bool,
-    isBlock: propTypes.bool,
-    isExternal: propTypes.bool,
-    isShadow: propTypes.bool,
-  };
+Button.propTypes = {
+  type: propTypes.oneOf(["button", "link"]),
+  onClick: propTypes.func,
+  target: propTypes.string,
+  href: propTypes.string,
+  className: propTypes.string,
+  isDisable: propTypes.bool,
+  isLoading: propTypes.bool,
+  isSmall: propTypes.bool,
+  isLarge: propTypes.bool,
+  isBlock: propTypes.bool,
+  isExternal: propTypes.bool,
+  isShadow: propTypes.bool,
+};
